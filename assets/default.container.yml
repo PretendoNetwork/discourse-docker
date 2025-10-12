@@ -10,8 +10,3 @@ hooks:
         cd: $home/plugins
         cmd:
           - git clone https://github.com/discourse/docker_manager.git
-          - git clone https://github.com/discourse/discourse-solved.git
-          - git clone https://github.com/discourse/discourse-math.git
-          - git clone https://github.com/discourse/discourse-graphviz.git
-          - git clone https://github.com/discourse/discourse-assign.git
-          - git clone https://github.com/discourse/discourse-reactions.git
