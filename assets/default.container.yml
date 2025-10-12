@@ -1,0 +1,12 @@
+# Basics for web_only
+templates:
+  - "templates/web.template.yml"
+  - "templates/web.ratelimited.template.yml"
+
+# Plugins
+hooks:
+  after_code:
+    - exec:
+        cd: $home/plugins
+        cmd:
+          - git clone https://github.com/discourse/docker_manager.git
