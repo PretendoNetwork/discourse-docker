@@ -16,6 +16,12 @@ jobs:
     name: Build and Publish Docker Image (amd64)
     runs-on: ubuntu-latest
 
+    services:
+      registry:
+        image: registry:3
+        ports:
+          - 5000:5000
+
     permissions:
       contents: read
       packages: write
@@ -29,6 +35,8 @@ jobs:
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
+        with:
+          driver-opts: network=host
 
       - name: Log into the container registry
         if: ${{ env.SHOULD_PUSH_IMAGE == 'true' }}
@@ -51,11 +59,16 @@ jobs:
       - name: Prepare discourse dependencies
         run: ./build.sh
 
+      - name: Publish discourse temporary image
+        run: docker image tag local_discourse/default localhost:5000/local_discourse/default:latest && docker image push localhost:5000/local_discourse/default:latest
+
       - name: Build and push Docker image
         id: build-and-push
         uses: docker/build-push-action@v6
         with:
           platforms: linux/amd64
+          build-args: |
+            DISCOURSE_IMAGE=localhost:5000/local_discourse/default:latest
           push: ${{ env.SHOULD_PUSH_IMAGE }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
