@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # Download deps
 rm -rf .temp
