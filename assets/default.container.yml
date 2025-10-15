@@ -8,5 +8,4 @@ hooks:
   after_code:
     - exec:
         cd: $home/plugins
-        cmd:
-          - git clone https://github.com/discourse/docker_manager.git
+        cmd: [] # Add git clones here for plugins
