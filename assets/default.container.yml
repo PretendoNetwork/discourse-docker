@@ -3,6 +3,9 @@ templates:
   - "templates/web.template.yml"
   - "templates/web.ratelimited.template.yml"
 
+params:
+  version: v3.5.2
+
 # Plugins
 hooks:
   after_code:
