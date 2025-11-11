@@ -4,11 +4,15 @@ templates:
   - "templates/web.ratelimited.template.yml"
 
 params:
-  version: v3.6.0.beta2
+  version: latest
 
-# Plugins
 hooks:
   after_code:
+    # Install plugins
     - exec:
         cd: $home/plugins
         cmd: [] # Add git clones here for plugins
+      
+    # Uninstall pg15, replace it with pg17 
+    - exec: DEBIAN_FRONTEND=noninteractive apt-get purge -y postgresql-client-15
+    - exec: apt-get update && apt-get install -y postgresql-client-17
