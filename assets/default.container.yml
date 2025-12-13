@@ -4,7 +4,7 @@ templates:
   - "templates/web.ratelimited.template.yml"
 
 params:
-  version: latest
+  version: v2025.11.0
 
 hooks:
   after_code:
