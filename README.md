@@ -3,8 +3,16 @@ Pretendo instance of discourse-docker, to make it a little more friendly to depl
 
 It includes all the plugins that Pretendo runs.
 
+
+## Choosing a version
+
+Choosing a version is easy:
+1. Pick a `supported` version from [the version list](https://releases.discourse.org/)
+2. Insert the version in `assets/default.container.yml`
+
+
 ## How to build an image
-Simply run `build.sh`, then build a container with `docker build -t hello-world .`
+Simply run `build.sh`, then build a container with `docker build -t hello-world .`. This is already done by the CI of this repository.
 
 You need the following to properly host discourse:
 - Postgresql
