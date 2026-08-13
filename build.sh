@@ -7,6 +7,7 @@ mkdir .temp
 git clone https://github.com/discourse/discourse_docker .temp/repo
 
 # Configure launcher
+cp assets/*.template.yml .temp/repo/templates/
 cp assets/default.container.yml .temp/repo/containers/default.yml
 
 # Patch default templates to disable database migration on compile

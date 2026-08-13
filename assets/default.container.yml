@@ -2,6 +2,7 @@
 templates:
   - "templates/web.template.yml"
   - "templates/web.ratelimited.template.yml"
+  - "templates/recursive-ip.template.yml"
 
 params:
   version: v2026.7.1
