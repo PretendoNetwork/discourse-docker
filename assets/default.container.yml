@@ -5,7 +5,7 @@ templates:
   - "templates/recursive-ip.template.yml"
 
 params:
-  version: v2026.7.1
+  version: v2026.10.1
 
 hooks:
   after_code:
